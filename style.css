@@ -27,16 +27,65 @@ body {
 .red { color: #FF5049 !important; }
 .red-focus:focus { border: 1px solid #FF5049 !important; }
 
+/*********************************************
+HEADER PART
+*********************************************/
+@keyframes slideDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+
+    80% {
+        transform: translateY(10px);
+    }
+
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+header {
+    height: 40vh;
+    background-image: linear-gradient(to right bottom, rgba(18, 42, 89, 0.8), rgba(0, 17, 43, 0.8)), url(back.jpg);
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 25vh, 0 100%);
+}
+
+header .header__title {
+    display: block;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    backface-visibility: hidden;
+}
+
+header .headingTop {
+    display: block;
+    color: #ffffff;
+    font-size: 40px;
+    letter-spacing: 10px;
+    margin-bottom: 30px;
+    animation: slideDown 1.5s ease-out;
+}
+
+
+
 /**********************************************
 *** TOP PART
 **********************************************/
 
 .top {
     height: 40vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(back.jpg);
-    background-size: cover;
-    background-position: center;
     position: relative;
+    margin-bottom: 30px;
 }
 
 .budget {
@@ -45,7 +94,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: #fff;
+    color: #000;
 }
 
 .budget__title {
@@ -114,9 +163,9 @@ body {
 
 /***** FORM *****/
 .add {
-    padding: 14px;
+    padding-bottom: 20px;
     border-bottom: 1px solid #e7e7e7;
-    background-color: #f7f7f7;
+    background-color: #131416;
 }
 
 .add__container {
@@ -192,15 +241,16 @@ body {
     width: 475px;
 }
 
-h2 {
-    text-transform: uppercase;
-    font-size: 18px;
-    font-weight: 400;
-    margin-bottom: 15px;
+.icome__title { 
+    color: #28B9B5;
+    text-align: center;
+    padding-bottom: 20px;
 }
-
-.icome__title { color: #28B9B5; }
-.expenses__title { color: #FF5049; }
+.expenses__title { 
+    color: #FF5049; 
+    text-align: center;
+    padding-bottom: 20px;
+}
 
 .item {
     padding: 13px;
@@ -208,7 +258,10 @@ h2 {
 }
 
 .item:first-child { border-top: 1px solid #e7e7e7; }
-.item:nth-child(even) { background-color: #f7f7f7; }
+.item:nth-child(even) { 
+    background-color: #f7f7f7;
+    color: #000;
+}
 
 .item__description {
     float: left;
@@ -275,3 +328,128 @@ h2 {
 
 .unpaid .item__percentage { box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1); }
 .unpaid:hover .item__description { font-weight: 900; }
+
+.bottom {
+    background-color: #131416;
+    padding: 20px 0 30px 0;
+}
+
+.income__list,
+.expenses__list {
+    color: #fff;
+}
+
+@media only screen and (min-width: 300px) {
+    .top {
+        padding: 10px;
+    }
+
+    .budget {
+        width: 100%;
+    }
+    
+    .add__container {
+        text-align: left;
+        padding: 10px;
+    }
+
+    .expenses__title {
+        margin-top: 20px;
+    }
+
+    .add__container .add__description {
+        width: 100%;
+    }
+
+    .add__container .add__type,
+    .add__container .add__description,
+    .add__container .add__value {
+        margin-bottom: 10px;
+    }
+
+    .container {
+        width: 100%;
+    }
+
+    .container .income,
+    .container .expenses {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .top {
+        padding: 10px;
+    }
+
+    .budget {
+        width: 50%;
+    }
+    
+    .add__container {
+        text-align: center;
+        padding: 10px;
+    }
+
+    .expenses__title {
+        margin-top: 20px;
+    }
+
+    .add__container .add__description {
+        width: 30%;
+    }
+
+    .add__container .add__type,
+    .add__container .add__description,
+    .add__container .add__value {
+        margin-bottom: 10px;
+    }
+
+    .container {
+        width: 100%;
+    }
+
+    .container .income,
+    .container .expenses {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .top {
+        padding: 10px;
+    }
+
+    .budget {
+        width: 50%;
+    }
+    
+    .add__container {
+        text-align: center;
+        padding: 10px;
+    }
+
+    .expenses__title {
+        margin-top: 0;
+    }
+
+    .add__container .add__description {
+        width: 20%;
+    }
+
+    .add__container .add__type,
+    .add__container .add__description,
+    .add__container .add__value {
+        margin-bottom: 10px;
+    }
+
+    .container {
+        width: 100%;
+    }
+
+    .container .income,
+    .container .expenses {
+        width: 40%;
+        margin: 0 5%;
+    }
+}
